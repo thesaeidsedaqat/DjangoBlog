@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2> Edit Blog Post </h2>
+                <ol>
+                    <li><a href="{% url 'home' %}"></a> Home </li>
+                    <li> Edit Blog Post</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <section class="blog" id="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <br>
+                        <input type="submit" value="Update" class="btn btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
